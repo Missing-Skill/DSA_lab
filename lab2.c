@@ -1,54 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX_SIZE 2
+#define MAX_SIZE 1000
 int s[MAX_SIZE], top = -1;
 void push()
 {
     int x;
     if (top == MAX_SIZE - 1)
     {
-        printf("Stack overflow\n");
+        printf("stack overflow \n");
         return;
     }
-    printf("Enter element: ");
+    printf("enter the element: ");
+    printf("\n");
     scanf("%d", &x);
-    top = top + 1;
+    top++;
     s[top] = x;
 }
 void pop()
 {
     if (top == -1)
     {
-        printf("Stack underflow\n");
+        printf("stack undeflow \n");
         return;
     }
-    printf("Popped element is %d", s[top]);
-    top = top - 1;
+    printf("pop elements is : %d", s[top]);
+    top--;
 }
+
 void display()
 {
     int i;
     if (top == -1)
     {
-        printf("Stack is empty");
+        printf("stack is empty");
         return;
     }
     else
     {
-        printf("Contents of the stack: \n");
-        for (i = 0; i <= top; i++)
+        printf("elements of the arrays are!! \n");
+        for (int i = 0; i <= top; i++)
         {
-            printf("%d ", s[i]);
+            printf("%d", s[i]);
+            printf(" ");
         }
     }
 }
+
 int main()
 {
     int ch, x;
     for (;;)
     {
-        printf("1.Push 2.Pop 3.Display");
-        printf("Enter the choice: ");
+        printf("\n 1.Push \t 2. Pop \t 3. Display \t 4. Exit \n");
+        printf("enter the choice: ");
         scanf("%d", &ch);
         switch (ch)
         {
@@ -61,8 +65,9 @@ int main()
         case 3:
             display();
             break;
-        default:
+        case 4:
             exit(0);
+            break;
         }
     }
 }
